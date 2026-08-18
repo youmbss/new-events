@@ -37,5 +37,11 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
+      - name: Get Build Artifacts
+        uses: actions/download-artifact@v7
+        with:
+          name: dist-files
+      - name: Output of Build Artifacts
+        run: ls -R
       - name: Deploy website
         run: echo "Deploying website..." # Replace this with your actual deployment command
